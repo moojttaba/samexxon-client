@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 /////REDUX
 import { connect } from "react-redux";
-import { toggleDrawerHidden } from "../redux/ui/ui.actions";
+import { toggleDrawerAdminHidden } from "../redux/ui/ui.actions";
 
 ////Route
 import { withRouter } from "react-router-dom";
@@ -9,7 +9,7 @@ import { withRouter } from "react-router-dom";
 /////Selector
 import { createStructuredSelector } from "reselect";
 
-import { selectDrawerHidden } from "../redux/ui/ui.selectors";
+import { selectDrawerAdminHidden } from "../redux/ui/ui.selectors";
 import DrawerList from "./drawer-admin-items.container";
 
 ////Icons
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DrawerCart = ({ hidden, toggleDrawerHidden }) => {
+const DrawerCart = ({ hiddenAdmin, toggleDrawerAdminHidden }) => {
   const classes = useStyles();
   //const themee = useTheme();
   //const matches = useMediaQuery(themee.breakpoints.up("md"));
@@ -68,9 +68,9 @@ const DrawerCart = ({ hidden, toggleDrawerHidden }) => {
       <SwipeableDrawer
         disableBackdropTransition={!iOS}
         disableDiscovery={iOS}
-        open={hidden}
-        onClose={toggleDrawerHidden}
-        onOpen={toggleDrawerHidden}
+        open={hiddenAdmin}
+        onClose={toggleDrawerAdminHidden}
+        onOpen={toggleDrawerAdminHidden}
         classes={{ paper: classes.drawer }}
         anchor="right"
       >
@@ -101,10 +101,10 @@ const DrawerCart = ({ hidden, toggleDrawerHidden }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  hidden: selectDrawerHidden,
+  hiddenAdmin: selectDrawerAdminHidden,
 });
 const mapDispatchToProps = (dispatch) => ({
-  toggleDrawerHidden: () => dispatch(toggleDrawerHidden()),
+  toggleDrawerAdminHidden: () => dispatch(toggleDrawerAdminHidden()),
 });
 
 export default withRouter(
