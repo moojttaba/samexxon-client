@@ -218,9 +218,6 @@ const Header = ({ toggleDrawerAdminHidden, signOutStart }) => {
                       className={classes.LogoTTGR}
                     />
                   </IconButton>
-                  <Typography variant="body2" fontSize="small">
-                    گروه راشا
-                  </Typography>
                 </Box>
               ) : (
                 <IconButton
