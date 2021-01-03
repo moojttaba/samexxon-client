@@ -21,11 +21,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 auto",
     height: "100%",
   },
-  MainRow: {
-    display: "flex",
-    position: "relative",
-    height: "100%",
-  },
+ 
 }));
 
 const HomePage = () => {
