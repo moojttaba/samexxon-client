@@ -11,11 +11,11 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 //import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
-
+//import Hidden from "@material-ui/core/Hidden";
 import SignIn from "../containers/sign-in.container";
 // import SignUp from "../containers/sign-up.container";
-import signImage from "../assets/samexxon.logo.jpg";
-
+import signImage from "../assets/ungate-shipt-shopper.jpg";
+// import SimpleHeader from '../layouts/header-simple.layout';
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -63,11 +63,7 @@ const SignInAndSignUpPage = ({ signUpTrue }) => {
                 خوش امدید
               </Typography>
             </Grid>
-            <Grid item className={classes.link}>
-              <Typography variant="subtitle1" color="textSecondary">
-                سریع تحویل بگیرید
-              </Typography>
-            </Grid>
+        
             <Grid item className={classes.link}>
               <img src={signImage} alt="signImage" className={classes.img} />
             </Grid>
@@ -76,7 +72,8 @@ const SignInAndSignUpPage = ({ signUpTrue }) => {
 
         <Grid item className={classes.gridItem} xs={3}>
           <Grid container spacing={2} direction="column">
-            <SignIn />
+            {/* {signUpTrue ? <SignIn /> : <SignUp />} */}
+            <SignIn /> 
           </Grid>
         </Grid>
       </Grid>

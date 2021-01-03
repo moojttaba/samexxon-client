@@ -7,9 +7,9 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Button from "@material-ui/core/Button";
-import { 
-  makeStyles, 
-  //useTheme 
+import {
+  makeStyles,
+  //useTheme
 } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 // import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -186,19 +186,19 @@ const Header = ({ toggleDrawerHidden, routes }) => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>ورود اعضا</MenuItem>
+      <MenuItem onClick={handleMenuClose} component={Link} to="/signin">
+        ورود اعضا
+      </MenuItem>
       <MenuItem onClick={handleMenuClose}>ارسال رزومه شغلی</MenuItem>
       <MenuItem onClick={handleMenuClose}>ثبت نام تامین کنندگان</MenuItem>
       <MenuItem onClick={handleMenuClose}>ثبت نام مشاوره های املاک</MenuItem>
     </Menu>
   );
 
-
-
   return (
     <Fragment>
       <ElevationScroll>
-        <AppBar className={classes.appBar}>
+        <AppBar className={classes.appBar} color="secondary">
           <Toolbar disableGutters={true} className={classes.toolbar}>
             <IconButton
               edge="end"
