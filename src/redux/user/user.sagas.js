@@ -18,7 +18,7 @@ export function* updateProfile({ payload: { data, token } }) {
   try {
     const user = yield axios({
       method: "PATCH",
-      url: "/api/v1/users/updateMe",
+      url: "http://130.185.123.249:4000/api/v1/users/updateMe",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export function* signInWithEmail({ payload: { email, password } }) {
   try {
     const user = yield axios({
       method: "POST",
-      url: "/api/v1/users/login",
+      url: "http://130.185.123.249:4000/api/v1/users/login",
       data: {
         email,
         password,
@@ -60,7 +60,7 @@ export function* signOut() {
   try {
     yield axios({
       method: "GET",
-      url: "/api/v1/users/logout",
+      url: "http://130.185.123.249:4000/api/v1/users/logout",
     });
     yield put(signOutSuccess());
   } catch (error) {
@@ -76,7 +76,7 @@ export function* signUp({
   try {
     const user = yield axios({
       method: "POST",
-      url: "/api/v1/users/signup",
+      url: "http://130.185.123.249:4000/api/v1/users/signup",
       data: {
         name,
         email,
