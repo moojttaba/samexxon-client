@@ -29,13 +29,12 @@ import ListItemText from "@material-ui/core/ListItemText";
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   drawer: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.secondary.main,
     width: drawerWidth,
     flexShrink: 0,
   },
   drawerItem: {
     textAlign: "right",
-
   },
   drawerItemSelected: {
     opacity: 1,
@@ -78,7 +77,7 @@ const DrawerCart = ({
                 setValue(route.activeIndex);
               }}
             >
-              <ListItemText className={classes.drawerItem} >
+              <ListItemText className={classes.drawerItem}>
                 {route.name}
               </ListItemText>
             </ListItem>
