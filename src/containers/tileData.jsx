@@ -16,39 +16,39 @@ import image16 from "./../assets/images/buildings/16.jpg";
 export const tileData = [
   {
     img: image1,
-    title: "Image",
+    title: "Idd",
     author: "author",
-    cols: 3,
+    cols: 1,
   },
   {
     img: image2,
     title: "Image",
     author: "author",
-    cols: 3,
+    cols: 2,
   },
   {
     img: image3,
     title: "Image",
     author: "author",
-    cols: 3,
+    cols: 1,
   },
   {
     img: image4,
     title: "Image",
     author: "author",
-    cols: 3,
+    cols: 2,
   },
   {
     img: image5,
     title: "Image",
     author: "author",
-    cols: 3,
+    cols: 1,
   },
   {
     img: image6,
     title: "Image",
     author: "author",
-    cols: 3,
+    cols: 2,
   },
   {
     img: image7,
@@ -86,7 +86,7 @@ export const tileData = [
     img: image14,
     title: "Image",
     author: "author",
-    cols: 3,
+    cols: 1,
   },
   {
     img: image15,
@@ -96,7 +96,7 @@ export const tileData = [
   },
   {
     img: image16,
-    title: "Image",
+    title: "Ima2ge",
     author: "author",
     cols: 3,
   },

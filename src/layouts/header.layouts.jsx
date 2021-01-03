@@ -1,4 +1,3 @@
-
 /////Redux
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -19,6 +18,9 @@ import Drawer from "./../containers/drawer-cart-container";
 import logo from "./../assets/logo.svg";
 import { createStructuredSelector } from "reselect";
 import { selectToolbarRoute } from "../redux/ui/ui.selectors";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
 
 ////////////////////////////////////////////////////
 
@@ -112,9 +114,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "transparent",
     },
   },
-  divider: {
-    flexGrow: 1,
-  },
+
   menu: {
     backgroundColor: theme.palette.primary.main,
     color: "white",
@@ -127,7 +127,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   drawerIconContainer: {
-    marginRight: "auto",
+    //marginRight: "auto",
     "&:hover": {
       backgroundColor: "transparent",
     },
@@ -140,6 +140,9 @@ const Header = ({ toggleDrawerHidden, routes }) => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [value, setValue] = useState(0);
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const isMenuOpen = Boolean(anchorEl);
 
   const handelChange = (e, value) => {
     setValue(value);
@@ -156,14 +159,37 @@ const Header = ({ toggleDrawerHidden, routes }) => {
             }
           }
           break;
-        case "/estimate":
-          setValue(5);
-          break;
+
         default:
           break;
       }
     });
   }, [value, selectedIndex, routes]);
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleProfileMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const menuId = "primary-search-account-menu";
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem onClick={handleMenuClose}>ورود اعضا</MenuItem>
+      <MenuItem onClick={handleMenuClose}>ثبت نام تامین کنندگان</MenuItem>
+      <MenuItem onClick={handleMenuClose}>ثبت نام مشاوره های املاک</MenuItem>
+    </Menu>
+  );
 
   const tabs = (
     <Fragment>
@@ -191,6 +217,15 @@ const Header = ({ toggleDrawerHidden, routes }) => {
       <ElevationScroll>
         <AppBar className={classes.appBar}>
           <Toolbar disableGutters={true} className={classes.toolbar}>
+            <IconButton
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+            >
+              <AccountCircle />
+            </IconButton>
             <Button
               component={Link}
               to="/"
@@ -199,8 +234,14 @@ const Header = ({ toggleDrawerHidden, routes }) => {
             >
               <img src={logo} alt="لگو بیاره" className={classes.logo} />
             </Button>
-            <div className={classes.divider} />
-            {matches ? (
+            <IconButton
+              onClick={toggleDrawerHidden}
+              className={classes.drawerIconContainer}
+            >
+              <MenuIcon />
+            </IconButton>
+
+            {/* {matches ? (
               <IconButton
                 onClick={toggleDrawerHidden}
                 className={classes.drawerIconContainer}
@@ -209,11 +250,12 @@ const Header = ({ toggleDrawerHidden, routes }) => {
               </IconButton>
             ) : (
               tabs
-            )}
+            )} */}
             <Drawer value={value} setValue={setValue} />
           </Toolbar>
         </AppBar>
       </ElevationScroll>
+      {renderMenu}
       <div className={classes.tolbarMargin} />
     </Fragment>
   );
