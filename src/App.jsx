@@ -29,7 +29,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Fragment>
-        <Header />
+        <AdminHeader />
         <Switch>
           <Suspense fallback={<Spinner />}>
             <Route exact path="/" component={HomePage} />
