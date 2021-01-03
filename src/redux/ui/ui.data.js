@@ -15,14 +15,65 @@ import image16 from "./../../assets/images/buildings/16.jpg";
 
 export const routes = [
   { name: "خانه", link: "/", activeIndex: 0 },
+  { name: "درباره ما", link: "/about", activeIndex: 1 },
+  { name: "تماس با ما", link: "/contact", activeIndex: 2 },
+];
+
+export const contactData = [
   {
-    name: "پروژه ها",
-    link: "/projects",
-    activeIndex: 1,
+    offices: "رولکس تاور",
+    address: "نیاوران خیابان نخجوان پلاک ۲۳",
+    city: "تهران",
+    tel: "۲۲۷۳۰۱۸۹-۲۱-۹۸+",
+    fax: "۲۲۷۰۳۵۶۲-۲۱-۹۸+",
+
+    email: "info@samexxon.com",
+    featured: true,
   },
 
-  { name: "درباره ما", link: "/about", activeIndex: 2 },
-  { name: "تماس با ما", link: "/contact", activeIndex: 3 },
+  {
+    offices: "بازار قطعات خودرو ایران",
+    address: "نیاوران خیابان نخجوان پلاک ۲۳",
+    city: "تهران",
+    tel: "۲۲۷۳۰۱۸۹-۲۱-۹۸+",
+    fax: "۲۲۷۰۳۵۶۲-۲۱-۹۸+",
+
+    email: "info@samexxon.com",
+    featured: true,
+  },
+  {
+    offices: "پروژه گلدن پالاس",
+    address: "نیاوران خیابان نخجوان پلاک ۲۳",
+    city: "تهران",
+    tel: "۲۲۷۳۰۱۸۹-۲۱-۹۸+",
+    fax: "۲۲۷۰۳۵۶۲-۲۱-۹۸+",
+
+    email: "info@samexxon.com",
+    featured: true,
+  },
+  {
+    offices: "پروژه سناتور پالاس",
+    address: "نیاوران خیابان نخجوان پلاک ۲۳",
+    city: "تهران",
+    tel: "۲۲۷۳۰۱۸۹-۲۱-۹۸+",
+    fax: "۲۲۷۰۳۵۶۲-۲۱-۹۸+",
+
+    email: "info@samexxon.com",
+    featured: true,
+  },
+  {
+    offices: "پروژه پرنس",
+    address: "نیاوران خیابان نخجوان پلاک ۲۳",
+    city: "تهران",
+    tel: "۲۲۷۳۰۱۸۹-۲۱-۹۸+",
+    fax: "۲۲۷۰۳۵۶۲-۲۱-۹۸+",
+
+    email: "info@samexxon.com",
+    featured: true,
+  },
+
+
+
 ];
 
 export const tileData = [

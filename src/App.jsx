@@ -20,6 +20,8 @@ import Spinner from "./components/spinner.component";
 //////////////////////////////////////////// PAGES
 
 const HomePage = lazy(() => import("./pages/home.page"));
+const ContactPage = lazy(() => import("./pages/contact.page"));
+const AboutUsPage = lazy(() => import("./pages/about-us.page"));
 
 const App = () => {
   return (
@@ -29,18 +31,8 @@ const App = () => {
         <Switch>
           <Suspense fallback={<Spinner />}>
             <Route exact path="/" component={HomePage} />
-            <Route
-              exact
-              path="/projects"
-              component={() => <div>portfolio</div>}
-            />
-            <Route
-              exact
-              path="/technology"
-              component={() => <div>technology</div>}
-            />
-            <Route exact path="/about" component={() => <div>about</div>} />
-            <Route exact path="/contact" component={() => <div>contact</div>} />
+            <Route exact path="/about" component={AboutUsPage} />
+            <Route exact path="/contact" component={ContactPage} />
           </Suspense>
         </Switch>
         <Footer />

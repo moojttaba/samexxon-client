@@ -16,3 +16,9 @@ export const selectTileData = createSelector(
   [selectUi],
   (state) => state.tileData
 );
+
+
+export const selectContactData = createSelector(
+  [selectUi],
+  (state) => state.contactData
+);

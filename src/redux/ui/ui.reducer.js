@@ -1,10 +1,11 @@
 import UiActionTypes from "./ui.types";
-import { routes, tileData } from "./ui.data";
+import { routes, tileData ,contactData} from "./ui.data";
 
 const INITIAL_STATE = {
   hidden: false,
   routesTab: routes,
-  tileData: tileData
+  tileData: tileData,
+  contactData: contactData
 };
 
 const uiReducer = (state = INITIAL_STATE, action) => {

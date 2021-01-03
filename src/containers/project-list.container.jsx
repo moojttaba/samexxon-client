@@ -1,6 +1,5 @@
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-
 import { connect } from "react-redux";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -15,7 +14,6 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 /////Selector
 import { createStructuredSelector } from "reselect";
-
 import { selectTileData } from "../redux/ui/ui.selectors";
 
 const useStyles = makeStyles((theme) => ({

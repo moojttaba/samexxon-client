@@ -2,10 +2,9 @@ import { Fragment } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import ImageGridList from "../containers/project-list.container";
+import ContactList from "./../containers/contact-list.container";
 
 const useStyles = makeStyles((theme) => ({
-  ///////////////////////////////// main
   homeMain: {
     minHeight: 630,
     height: "calc(100vh - 100px)",
@@ -21,19 +20,18 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 auto",
     height: "100%",
   },
- 
 }));
 
-const HomePage = () => {
+const ContactPage = () => {
   //const classes = useStyles();
 
   return (
     <Fragment>
       <Container>
-        <ImageGridList />
+        <ContactList />
       </Container>
     </Fragment>
   );
 };
 
-export default HomePage;
+export default ContactPage;
