@@ -12,6 +12,7 @@ import { Route, Switch } from "react-router-dom";
 
 //////////////////////////////////////////// Layouts
 import Header from "./layouts/header.layouts";
+import AdminHeader from './layouts/admin-header.layouts'
 import Footer from "./layouts/footer.layouts";
 
 //////////////////////////////////////////// COMPONENTS
