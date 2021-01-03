@@ -5,7 +5,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { renderTextField } from "./../components/form/material-ui.form";
 import { createStructuredSelector } from "reselect";
@@ -16,9 +15,10 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(6),
     margin: "auto",
     minWidth: 400,
+    
   },
 }));
 
@@ -75,16 +75,8 @@ const SignIN = ({ emailSignInStart, switchSignUpSignIn, handleSubmit }) => {
 
             <Box
               display="flex"
-              style={{ padding: 20, justifyContent: "space-between" }}
+              style={{ padding: 20, justifyContent: "center" }}
             >
-              <Box>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  آیا اکانت ندارید؟
-                  <Button color="primary" onClick={switchSignUpSignIn}>
-                    ثبت نام
-                  </Button>
-                </Typography>
-              </Box>
               <Box>
                 <Button color="primary" onClick={switchSignUpSignIn}>
                   رمز را فراموش کردید؟

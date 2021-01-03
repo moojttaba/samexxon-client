@@ -31,10 +31,10 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "none",
     borderRadius: 0,
   },
-  // gridList: {
-  //   width: "100%",
-  //   height: "100%",
-  // },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
 }));
 
 /**
