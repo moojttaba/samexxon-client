@@ -1,3 +1,6 @@
+
+
+
 //////////////////////////////////////////// React - Redux
 import { lazy, Suspense, Fragment } from "react";
 import { connect } from "react-redux";
@@ -24,7 +27,9 @@ const ContactPage = lazy(() => import("./pages/contact.page"));
 const AboutUsPage = lazy(() => import("./pages/about-us.page"));
 const SignInPage = lazy(() => import("./pages/sign-in.page"));
 
+
 const ProfilePage = lazy(() => import("./pages/profile.page"));
+const AdminHomePage = lazy(() => import("./pages/admin-home.page"));
 
 const App = ({ isAuthenticated }) => {
   return (
