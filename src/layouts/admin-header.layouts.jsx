@@ -29,7 +29,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Drawer from "../containers/drawer-admin.container";
 
 //////////////////////////////////////////// ICON - IMAGE
-import logo from "./../assets/logo.svg";
+import logo from "./../assets/samexxon.logo.jpg";
 
 import { signOutStart } from "../redux/user/user.actions";
 
@@ -203,7 +203,6 @@ const Header = ({ toggleDrawerAdminHidden, signOutStart }) => {
     </Menu>
   );
 
-  
   return (
     <Fragment>
       <ElevationScroll>

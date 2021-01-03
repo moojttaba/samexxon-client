@@ -24,7 +24,7 @@ const uiReducer = (state = INITIAL_STATE, action) => {
     case UiActionTypes.TOGGLE_DRAWER_ADMIN_HIDDEN:
       return {
         ...state,
-        hiddenAdmin: !state.hidden,
+        hiddenAdmin: !state.hiddenAdmin,
       };
     case UiActionTypes.TOGGLE_OREDERS:
       return {
