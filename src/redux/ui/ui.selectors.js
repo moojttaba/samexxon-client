@@ -11,3 +11,8 @@ export const selectToolbarRoute = createSelector(
   [selectUi],
   (state) => state.routesTab
 );
+
+export const selectTileData = createSelector(
+  [selectUi],
+  (state) => state.tileData
+);

@@ -1,6 +1,7 @@
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import tileData from "./tileData";
+
+import { connect } from "react-redux";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -9,14 +10,16 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-const useStyles = makeStyles((theme) => ({
-  GridListTile:{
-    
+/////Selector
+import { createStructuredSelector } from "reselect";
 
-  },
+import { selectTileData } from "../redux/ui/ui.selectors";
+
+const useStyles = makeStyles((theme) => ({
+  GridListTile: {},
   Card: {
     padding: theme.spacing(1),
     display: "flex",
@@ -54,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
  *   },
  * ];
  */
-const ImageGridList = () => {
+const ImageGridList = ({ tileData }) => {
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
@@ -67,7 +70,11 @@ const ImageGridList = () => {
         cols={matches ? 3 : 6}
       >
         {tileData.map((tile) => (
-          <GridListTile key={tile.img} cols={tile.cols || 1} className={classes.GridListTile}>
+          <GridListTile
+            key={tile.img}
+            cols={tile.cols || 1}
+            className={classes.GridListTile}
+          >
             <Card
               className={classes.Card}
               key={tile.img}
@@ -112,6 +119,9 @@ const ImageGridList = () => {
   );
 };
 
-export default ImageGridList;
+const mapDispatchToProps = (dispatch) => ({});
+const mapStateToProps = createStructuredSelector({
+  tileData: selectTileData,
+});
 
-//cols={tile.cols || 1}
+export default connect(mapStateToProps, mapDispatchToProps)(ImageGridList);
