@@ -148,21 +148,3 @@ const mapStateToProps = createStructuredSelector({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
-
-/*
-     <img src={tile.img} alt={tile.title} />
-            <GridListTileBar
-              title={tile.title}
-              titlePosition="top"
-              actionIcon={
-                <IconButton
-                  aria-label={`star ${tile.title}`}
-                  className={classes.icon}
-                >
-                  <StarBorderIcon />
-                </IconButton>
-              }
-              actionPosition="left"
-              className={classes.titleBar}
-            />
-*/

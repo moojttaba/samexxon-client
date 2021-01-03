@@ -2,23 +2,22 @@ import { Fragment } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import ImageGridList from "../containers/project-list.container";
+import AboutUsContainer from "./../containers/about-us.container";
 
 const useStyles = makeStyles((theme) => ({
-  ///////////////////////////////// main
   homeMain: {},
 }));
 
-const HomePage = () => {
+const AbooutUsPage = () => {
   const classes = useStyles();
 
   return (
     <Fragment>
       <Container className={classes.homeMain}>
-        <ImageGridList />
+        <AboutUsContainer />
       </Container>
     </Fragment>
   );
 };
 
-export default HomePage;
+export default AbooutUsPage;

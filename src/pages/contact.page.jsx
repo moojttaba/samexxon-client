@@ -5,15 +5,11 @@ import Container from "@material-ui/core/Container";
 import ContactList from "./../containers/contact-list.container";
 
 const useStyles = makeStyles((theme) => ({
-  homeMain: {
-
-  },
- 
-
+  homeMain: {},
 }));
 
 const ContactPage = () => {
- const classes = useStyles();
+  const classes = useStyles();
 
   return (
     <Fragment>
