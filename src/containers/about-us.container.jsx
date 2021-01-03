@@ -1,7 +1,10 @@
 import { Fragment } from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import {
+   makeStyles, 
+  // useTheme 
+  } from "@material-ui/core/styles";
 //import { Link } from "react-router-dom";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+//import useMediaQuery from "@material-ui/core/useMediaQuery";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
@@ -83,8 +86,8 @@ const useStyles = makeStyles((theme) => ({
 
 const ContactList = ({ tileData }) => {
   const classes = useStyles();
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  //const theme = useTheme();
+  // const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Fragment>
