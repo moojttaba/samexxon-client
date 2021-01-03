@@ -11,11 +11,11 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 //import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
-//import Hidden from "@material-ui/core/Hidden";
+
 import SignIn from "../containers/sign-in.container";
-import SignUp from "../containers/sign-up.container";
+// import SignUp from "../containers/sign-up.container";
 import signImage from "../assets/samexxon.logo.jpg";
-// import SimpleHeader from '../layouts/header-simple.layout';
+
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Toolbar from "@material-ui/core/Toolbar";
