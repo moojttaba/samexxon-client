@@ -13,42 +13,42 @@ import image14 from "./../assets/images/buildings/14.jpg";
 import image15 from "./../assets/images/buildings/15.jpg";
 import image16 from "./../assets/images/buildings/16.jpg";
 
-export const tileData = [
+const tileData = [
   {
     img: image1,
     title: "Idd",
     author: "author",
-    cols: 1,
+    cols: 3,
   },
   {
     img: image2,
     title: "Image",
     author: "author",
-    cols: 2,
+    cols: 3,
   },
   {
     img: image3,
     title: "Image",
     author: "author",
-    cols: 1,
+    cols: 3,
   },
   {
     img: image4,
     title: "Image",
     author: "author",
-    cols: 2,
+    cols: 3,
   },
   {
     img: image5,
     title: "Image",
     author: "author",
-    cols: 1,
+    cols: 3,
   },
   {
     img: image6,
     title: "Image",
     author: "author",
-    cols: 2,
+    cols: 3,
   },
   {
     img: image7,
@@ -86,7 +86,7 @@ export const tileData = [
     img: image14,
     title: "Image",
     author: "author",
-    cols: 1,
+    cols: 3,
   },
   {
     img: image15,
@@ -101,3 +101,98 @@ export const tileData = [
     cols: 3,
   },
 ];
+
+export default tileData;
+
+/*
+
+export const tileData = [
+  {
+    img: image1,
+    title: "Idd",
+    author: "author",
+    cols: 3,
+  },
+  {
+    img: image2,
+    title: "Image",
+    author: "author",
+    cols: 3,
+  },
+  {
+    img: image3,
+    title: "Image",
+    author: "author",
+    cols: 3,
+  },
+  {
+    img: image4,
+    title: "Image",
+    author: "author",
+    cols: 3,
+  },
+  {
+    img: image5,
+    title: "Image",
+    author: "author",
+    cols: 3,
+  },
+  {
+    img: image6,
+    title: "Image",
+    author: "author",
+    cols: 3,
+  },
+  {
+    img: image7,
+    title: "Image",
+    author: "author",
+    cols: 3,
+  },
+  {
+    img: image8,
+    title: "Image",
+    author: "author",
+    cols: 3,
+  },
+  {
+    img: image9,
+    title: "Image",
+    author: "author",
+    cols: 3,
+  },
+
+  {
+    img: image11,
+    title: "Image",
+    author: "author",
+    cols: 3,
+  },
+  {
+    img: image12,
+    title: "Image",
+    author: "author",
+    cols: 3,
+  },
+
+  {
+    img: image14,
+    title: "Image",
+    author: "author",
+    cols: 3,
+  },
+  {
+    img: image15,
+    title: "Image",
+    author: "author",
+    cols: 3,
+  },
+  {
+    img: image16,
+    title: "Ima2ge",
+    author: "author",
+    cols: 3,
+  },
+];
+
+*/

@@ -6,8 +6,8 @@ import { cloneElement, Fragment, useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+// import Tabs from "@material-ui/core/Tabs";
+// import Tab from "@material-ui/core/Tab";
 import Button from "@material-ui/core/Button";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
@@ -144,9 +144,9 @@ const Header = ({ toggleDrawerHidden, routes }) => {
 
   const isMenuOpen = Boolean(anchorEl);
 
-  const handelChange = (e, value) => {
-    setValue(value);
-  };
+  // const handelChange = (e, value) => {
+  //   setValue(value);
+  // };
 
   useEffect(() => {
     [...routes].forEach((route) => {
@@ -191,26 +191,26 @@ const Header = ({ toggleDrawerHidden, routes }) => {
     </Menu>
   );
 
-  const tabs = (
-    <Fragment>
-      <Tabs
-        className={classes.tabContainer}
-        value={value}
-        onChange={handelChange}
-        //indicatorColor="primary"
-      >
-        {routes.map((route, index) => (
-          <Tab
-            key={`${route}${index}`}
-            className={classes.tab}
-            component={Link}
-            to={route.link}
-            label={route.name}
-          />
-        ))}
-      </Tabs>
-    </Fragment>
-  );
+  // const tabs = (
+  //   <Fragment>
+  //     <Tabs
+  //       className={classes.tabContainer}
+  //       value={value}
+  //       onChange={handelChange}
+  //       //indicatorColor="primary"
+  //     >
+  //       {routes.map((route, index) => (
+  //         <Tab
+  //           key={`${route}${index}`}
+  //           className={classes.tab}
+  //           component={Link}
+  //           to={route.link}
+  //           label={route.name}
+  //         />
+  //       ))}
+  //     </Tabs>
+  //   </Fragment>
+  // );
 
   return (
     <Fragment>

@@ -1,7 +1,6 @@
-import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import { tileData } from "./tileData";
+import tileData from "./tileData";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -9,9 +8,17 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  GridListTile:{
+    
+
+  },
+  Card: {
+    padding: theme.spacing(1),
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-around",
@@ -49,14 +56,20 @@ const useStyles = makeStyles((theme) => ({
  */
 const ImageGridList = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={500} className={classes.gridList} cols={3}>
+      <GridList
+        cellHeight={500}
+        className={classes.gridList}
+        cols={matches ? 3 : 6}
+      >
         {tileData.map((tile) => (
-          <GridListTile key={tile.img} cols={tile.cols || 1}>
+          <GridListTile key={tile.img} cols={tile.cols || 1} className={classes.GridListTile}>
             <Card
-              className={classes.root}
+              className={classes.Card}
               key={tile.img}
               classes={{ root: classes.paper }}
             >
