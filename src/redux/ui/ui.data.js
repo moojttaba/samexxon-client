@@ -71,6 +71,16 @@ export const contactData = [
     email: "info@samexxon.com",
     featured: true,
   },
+  {
+    offices: "واحد بازاریابی و فروش",
+    address: "نیاوران خیابان نخجوان پلاک ۲۳",
+    city: "تهران",
+    tel: "۲۲۷۲۹۶۴۲-۲۱-۹۸+",
+    fax: "۲۲۷۰۳۵۶۲-۲۱-۹۸+",
+
+    email: "info@samexxon.com",
+    featured: true,
+  },
 
 
 
