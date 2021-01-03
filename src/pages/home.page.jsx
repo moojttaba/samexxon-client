@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
+import ImageGridList from "./../containers/grid-images.list.container";
 
 const useStyles = makeStyles((theme) => ({
   ///////////////////////////////// main
@@ -29,7 +30,11 @@ const useStyles = makeStyles((theme) => ({
 const HomePage = () => {
   const classes = useStyles();
 
-  return <Fragment>home</Fragment>;
+  return (
+    <Fragment>
+      <ImageGridList />
+    </Fragment>
+  );
 };
 
 export default HomePage;
