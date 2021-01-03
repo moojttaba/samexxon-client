@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 /////REDUX
 import { connect } from "react-redux";
-import { toggleDrawerAdminHidden } from "../redux/ui/ui.actions";
+import { toggleDrawerHidden } from "../redux/ui/ui.actions";
 
 ////Route
 import { withRouter } from "react-router-dom";
@@ -11,7 +11,7 @@ import { withRouter } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 
 import {
-  selectDrawerAdminHidden,
+  selectDrawerHidden,
   selectToolbarRoute,
 } from "../redux/ui/ui.selectors";
 
@@ -42,8 +42,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DrawerCart = ({
-  hiddenAdmin,
-  toggleDrawerAdminHidden,
+  hidden,
+  toggleDrawerHidden,
   value,
   setValue,
   routes,
@@ -56,9 +56,9 @@ const DrawerCart = ({
       <SwipeableDrawer
         disableBackdropTransition={!iOS}
         disableDiscovery={iOS}
-        open={hiddenAdmin}
-        onClose={toggleDrawerAdminHidden}
-        onOpen={toggleDrawerAdminHidden}
+        open={hidden}
+        onClose={toggleDrawerHidden}
+        onOpen={toggleDrawerHidden}
         classes={{ paper: classes.drawer }}
         anchor="right"
       >
@@ -73,7 +73,7 @@ const DrawerCart = ({
               selected={value === route.activeIndex}
               classes={{ selected: classes.drawerItemSelected }}
               onClick={() => {
-                toggleDrawerAdminHidden();
+                toggleDrawerHidden();
                 setValue(route.activeIndex);
               }}
             >
@@ -89,11 +89,11 @@ const DrawerCart = ({
 };
 
 const mapStateToProps = createStructuredSelector({
-  hiddenAdmin: selectDrawerAdminHidden,
+  hidden: selectDrawerHidden,
   routes: selectToolbarRoute,
 });
 const mapDispatchToProps = (dispatch) => ({
-  toggleDrawerHidden: () => dispatch(toggleDrawerAdminHidden()),
+  toggleDrawerHidden: () => dispatch(toggleDrawerHidden()),
 });
 
 export default withRouter(
