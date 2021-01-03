@@ -48,7 +48,7 @@ const Footer = () => {
         align="center"
         className={classes.copyright}
       >
-        {`© ${new Date().getFullYear()} گروه راشا . کلیه حقوق محفوظ  است .`}
+        {`© ${new Date().getFullYear()} گروه سام اکسون . کلیه حقوق محفوظ  است .`}
       </Typography>
     );
   };
