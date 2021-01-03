@@ -9,7 +9,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectContactData } from "../redux/ui/ui.selectors";
-import bg from './../assets/images/buildings/bg'
+import bg from './../assets/images/buildings/'
 
 const useStyles = makeStyles((theme) => ({
   ContactList: {
