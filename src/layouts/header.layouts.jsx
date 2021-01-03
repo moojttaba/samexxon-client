@@ -6,12 +6,13 @@ import { cloneElement, Fragment, useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-// import Tabs from "@material-ui/core/Tabs";
-// import Tab from "@material-ui/core/Tab";
 import Button from "@material-ui/core/Button";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { 
+  makeStyles, 
+  //useTheme 
+} from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+// import useMediaQuery from "@material-ui/core/useMediaQuery";
 import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
 import Drawer from "./../containers/drawer-cart-container";
@@ -136,8 +137,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = ({ toggleDrawerHidden, routes }) => {
   const classes = useStyles();
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  // const theme = useTheme();
+  // const matches = useMediaQuery(theme.breakpoints.down("md"));
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
