@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
 import Drawer from "./../containers/drawer-cart-container";
-import logo from "./../assets/logo.svg";
+import logo from "./../assets/samexxon.logo.jpg";
 import { createStructuredSelector } from "reselect";
 import { selectToolbarRoute } from "../redux/ui/ui.selectors";
 import AccountCircle from "@material-ui/icons/AccountCircle";
