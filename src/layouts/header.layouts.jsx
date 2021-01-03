@@ -187,31 +187,13 @@ const Header = ({ toggleDrawerHidden, routes }) => {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>ورود اعضا</MenuItem>
+      <MenuItem onClick={handleMenuClose}>ارسال رزومه شغلی</MenuItem>
       <MenuItem onClick={handleMenuClose}>ثبت نام تامین کنندگان</MenuItem>
       <MenuItem onClick={handleMenuClose}>ثبت نام مشاوره های املاک</MenuItem>
     </Menu>
   );
 
-  // const tabs = (
-  //   <Fragment>
-  //     <Tabs
-  //       className={classes.tabContainer}
-  //       value={value}
-  //       onChange={handelChange}
-  //       //indicatorColor="primary"
-  //     >
-  //       {routes.map((route, index) => (
-  //         <Tab
-  //           key={`${route}${index}`}
-  //           className={classes.tab}
-  //           component={Link}
-  //           to={route.link}
-  //           label={route.name}
-  //         />
-  //       ))}
-  //     </Tabs>
-  //   </Fragment>
-  // );
+
 
   return (
     <Fragment>
