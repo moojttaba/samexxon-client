@@ -1,6 +1,3 @@
-
-
-
 //////////////////////////////////////////// React - Redux
 import { lazy, Suspense, Fragment } from "react";
 import { connect } from "react-redux";
@@ -22,41 +19,28 @@ import Spinner from "./components/spinner.component";
 
 //////////////////////////////////////////// PAGES
 
-const HomePage = lazy(() => import("./pages/home.page"));
-const ContactPage = lazy(() => import("./pages/contact.page"));
-const AboutUsPage = lazy(() => import("./pages/about-us.page"));
-const SignInPage = lazy(() => import("./pages/sign-in.page"));
+import HomePage from "./pages/home.page";
+import ContactPage from "./pages/contact.page";
+import AboutUsPage from "./pages/about-us.page";
+import SignInPage from "./pages/sign-in.page";
 
-
-const ProfilePage = lazy(() => import("./pages/profile.page"));
-const AdminHomePage = lazy(() => import("./pages/admin-home.page"));
+import ProfilePage from "./pages/profile.page";
+import AdminHomePage from "./pages/admin-home.page";
 
 const App = ({ isAuthenticated }) => {
   return (
     <ThemeProvider theme={theme}>
       <Fragment>
-        {isAuthenticated === "success" ? (
-          <Suspense fallback={<Spinner />}>
-            <AdminHeader />
-            <Switch>
-              <Route exact path="/" component={ProfilePage} />
-            </Switch>
-            <Footer />
-          </Suspense>
-        ) : (
-          <Fragment>
-            <Header />
-            <Switch>
-              <Suspense fallback={<Spinner />}>
-                <Route exact path="/" component={HomePage} />
-                <Route exact path="/about" component={AboutUsPage} />
-                <Route exact path="/signin" component={SignInPage} />
-                <Route exact path="/contact" component={ContactPage} />
-              </Suspense>
-            </Switch>
-            <Footer />
-          </Fragment>
-        )}
+        <Fragment>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/about" component={AboutUsPage} />
+            <Route exact path="/signin" component={SignInPage} />
+            <Route exact path="/contact" component={ContactPage} />
+          </Switch>
+          <Footer />
+        </Fragment>
       </Fragment>
     </ThemeProvider>
   );
