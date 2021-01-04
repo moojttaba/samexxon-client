@@ -1,55 +1,60 @@
-import { lazy, Suspense, Fragment } from "react";
-
+import { Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "./redux/user/user.selectors";
 
-//////////////////////////////////////////// styles
 import theme from "./styles/theme.jsx";
 import { ThemeProvider } from "@material-ui/core/styles";
 
-//////////////////////////////////////////// Route
-import { Route, Switch } from "react-router-dom";
+import PrivateRoute from "./routes/private.routes";
+import PublicRoute from "./routes/public.routes";
 
-//////////////////////////////////////////// Layouts
 import Header from "./layouts/header.layouts";
-import Footer from "./layouts/footer.layouts";
+import AdminHeader from "./layouts/admin-header.layouts";
 
-//////////////////////////////////////////// COMPONENTS
-import Spinner from "./components/spinner.component";
+import HomePage from "./pages/home.page";
+import ContactPage from "./pages/contact.page";
+import AboutUsPage from "./pages/about-us.page";
+import SignInPage from "./pages/sign-in.page";
 
-//////////////////////////////////////////// PAGES
+import DashboardPage from "./pages/dashboard.page";
 
-const HomePage = lazy(() => import("./pages/home.page"));
+const App = ({ isAuthenticated }) => {
 
-const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Fragment>
-        <Header />
-        <Switch>
-          <Suspense fallback={<Spinner />}>
-            <Route exact path="/" component={HomePage} />
-            <Route
-              exact
-              path="/portfolio"
-              component={() => <div>portfolio</div>}
-            />
-            <Route
-              exact
-              path="/technology"
-              component={() => <div>technology</div>}
-            />
-            <Route exact path="/about" component={() => <div>about</div>} />
-            <Route exact path="/contact" component={() => <div>contact</div>} />
-          </Suspense>
-        </Switch>
-        <Footer />
-      </Fragment>
+      {isAuthenticated ? <AdminHeader /> : <Header />}
+
+      <Switch>
+        <PublicRoute restricted={true} component={HomePage} path="/" exact />
+        <PublicRoute
+          restricted={true}
+          component={AboutUsPage}
+          path="/about"
+          exact
+        />
+        <PublicRoute
+          restricted={true}
+          component={ContactPage}
+          path="/contact"
+          exact
+        />
+        <PublicRoute
+          restricted={true}
+          component={SignInPage}
+          path="/signin"
+          exact
+        />
+
+        <PrivateRoute component={DashboardPage} path="/dashboard" exact />
+      </Switch>
     </ThemeProvider>
   );
 };
 
-const mapStateToProps = createStructuredSelector({});
+const mapStateToProps = createStructuredSelector({
+  isAuthenticated: selectCurrentUser,
+});
 
 const mapDispatchToProps = (dispatch) => ({});
 
