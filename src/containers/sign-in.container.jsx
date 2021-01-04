@@ -78,7 +78,7 @@ const SignIN = ({ emailSignInStart, switchSignUpSignIn, handleSubmit }) => {
               style={{ padding: 20, justifyContent: "center" }}
             >
               <Box>
-                <Button color="primary" onClick={switchSignUpSignIn}>
+                <Button color="primary" >
                   رمز را فراموش کردید؟
                 </Button>
               </Box>

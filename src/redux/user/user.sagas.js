@@ -45,11 +45,11 @@ export function* signInWithEmail({ payload: { email, password } }) {
         password,
       },
     }).then((response) => response.data);
-    if (user.status === "success") {
-      return window.setTimeout(() => {
-        location.assign("/");
-      }, 1500);
-    }
+    // if (user.status === "success") {
+    //   return window.setTimeout(() => {
+    //     location.assign("/");
+    //   }, 1500);
+    // }
     yield put(signInSuccess(user));
   } catch (error) {
     yield put(signInFailure(error));
@@ -67,8 +67,6 @@ export function* signOut() {
     yield put(signOutFailure(error));
   }
 }
-
-
 
 export function* signUp({
   payload: { name, email, password, passwordConfirm },
