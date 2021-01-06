@@ -10,6 +10,7 @@ import PrivateRoute from "./routes/private.routes";
 import PublicRoute from "./routes/public.routes";
 
 import Header from "./layouts/header.layouts";
+import Footer from "./layouts/footer.layouts";
 import AdminHeader from "./layouts/admin-header.layouts";
 
 import HomePage from "./pages/home.page";
@@ -20,7 +21,6 @@ import SignInPage from "./pages/sign-in.page";
 import DashboardPage from "./pages/dashboard.page";
 
 const App = ({ isAuthenticated }) => {
-
   return (
     <ThemeProvider theme={theme}>
       {isAuthenticated ? <AdminHeader /> : <Header />}
@@ -48,6 +48,7 @@ const App = ({ isAuthenticated }) => {
 
         <PrivateRoute component={DashboardPage} path="/dashboard" exact />
       </Switch>
+      <Footer />
     </ThemeProvider>
   );
 };
