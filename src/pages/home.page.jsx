@@ -6,7 +6,9 @@ import ImageGridList from "../containers/project-list.container";
 
 const useStyles = makeStyles((theme) => ({
   ///////////////////////////////// main
-  homeMain: {},
+  homeMain: {
+    maxWidth: "1152px",
+  },
 }));
 
 const HomePage = () => {

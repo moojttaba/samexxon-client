@@ -5,7 +5,9 @@ import Container from "@material-ui/core/Container";
 import ContactList from "./../containers/contact-list.container";
 
 const useStyles = makeStyles((theme) => ({
-  homeMain: {},
+  homeMain: {
+    maxWidth: "1152px",
+  },
 }));
 
 const ContactPage = () => {

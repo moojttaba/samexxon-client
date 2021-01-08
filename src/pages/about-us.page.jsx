@@ -5,7 +5,9 @@ import Container from "@material-ui/core/Container";
 import AboutUsContainer from "./../containers/about-us.container";
 
 const useStyles = makeStyles((theme) => ({
-  homeMain: {},
+  homeMain: {
+    maxWidth: "1152px",
+  },
 }));
 
 const AbooutUsPage = () => {
