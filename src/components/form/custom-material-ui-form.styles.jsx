@@ -82,6 +82,7 @@ export const MyFormControl = withStyles((theme) => ({
     },
 
     "& fieldset": {
+      borderWidth:  '2px',
       "& legend": {
         textAlign: "right !important",
 
