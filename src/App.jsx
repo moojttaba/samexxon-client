@@ -17,6 +17,7 @@ import HomePage from "./pages/home.page";
 import ContactPage from "./pages/contact.page";
 import AboutUsPage from "./pages/about-us.page";
 import SignInPage from "./pages/sign-in.page";
+import RegisterProvider from "./pages/register-provider.page";
 
 import DashboardPage from "./pages/dashboard.page";
 
@@ -43,6 +44,12 @@ const App = ({ isAuthenticated }) => {
           restricted={true}
           component={SignInPage}
           path="/signin"
+          exact
+        />
+        <PublicRoute
+          restricted={true}
+          component={RegisterProvider}
+          path="/register-provider"
           exact
         />
 

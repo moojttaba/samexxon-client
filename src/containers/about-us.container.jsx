@@ -118,7 +118,7 @@ const ContactList = ({ tileData }) => {
            ss
           </Typography> */}
 
-          <Typography variant="body2" component="p" align="center">
+          <Typography variant="body2" component="p" align="center" color='textSecondary'>
             {`ارائه بیوگرافی دقیق Westbank چالش برانگیز است. ما بسته به نوع پروژه
             هایی که در حال کار هستیم ، مکان هایی که در آن کار می کنیم و آنچه که
             می خواهیم انجام دهیم ، چیزهای زیادی هستیم. ما تصور نمی کنیم که یک
