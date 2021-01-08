@@ -2,16 +2,14 @@ import { Fragment } from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import { makeStyles } from "@material-ui/core/styles";
-import Radio from "@material-ui/core/Radio";
-import MenuItem from '@material-ui/core/MenuItem';
+import MenuItem from "@material-ui/core/MenuItem";
 import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import {
   renderTextField,
-  renderCheckbox,
-  radioButton,
-  renderFromHelper,
+  //renderCheckbox,
+  //radioButton,
   renderSelectField,
 } from "../components/form/material-ui.form";
 import { createStructuredSelector } from "reselect";
@@ -28,7 +26,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const RegisterProviderForm = ({ emailSignInStart, switchSignUpSignIn, handleSubmit }) => {
+const RegisterProviderForm = ({
+  emailSignInStart,
+  switchSignUpSignIn,
+  handleSubmit,
+}) => {
   const classes = useStyles();
 
   const onSubmit = ({ email, password }) => {
