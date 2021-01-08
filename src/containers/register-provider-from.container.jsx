@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignIN = ({ emailSignInStart, switchSignUpSignIn, handleSubmit }) => {
+const RegisterProviderForm = ({ emailSignInStart, switchSignUpSignIn, handleSubmit }) => {
   const classes = useStyles();
 
   const onSubmit = ({ email, password }) => {
@@ -44,6 +44,7 @@ const SignIN = ({ emailSignInStart, switchSignUpSignIn, handleSubmit }) => {
               component={renderSelectField}
               label="Color"
               variant="outlined"
+              name="moji"
             >
               <MenuItem value="">
                 <em>None</em>
@@ -102,5 +103,5 @@ const mapDispatchToProps = (dispatch) => ({
 
 export default reduxForm({
   validate,
-  form: "SignInWithEmailAndPassword",
-})(connect(mapStateToProps, mapDispatchToProps)(SignIN));
+  form: "RegisterProviderForm",
+})(connect(mapStateToProps, mapDispatchToProps)(RegisterProviderForm));
