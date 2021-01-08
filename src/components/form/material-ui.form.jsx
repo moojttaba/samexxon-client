@@ -1,13 +1,14 @@
-import { MyTextField } from "./custom-material-ui-form.styles";
+import { MyTextField, MyFormControl } from "./custom-material-ui-form.styles";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
+
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
-
+import { makeStyles } from "@material-ui/core/styles";
 //import asyncValidate from './asyncValidate'
 //import { Field, reduxForm } from 'redux-form'
 
@@ -27,7 +28,6 @@ export const renderTextField = ({
   />
 );
 
-
 export const renderCheckbox = ({ input, label }) => (
   <div>
     <FormControlLabel
@@ -35,6 +35,7 @@ export const renderCheckbox = ({ input, label }) => (
         <Checkbox
           checked={input.value ? true : false}
           onChange={input.onChange}
+          color="primary"
         />
       }
       label={label}
@@ -45,9 +46,21 @@ export const renderCheckbox = ({ input, label }) => (
 export const radioButton = ({ input, ...rest }) => (
   <FormControl>
     <RadioGroup {...input} {...rest}>
-      <FormControlLabel value="female" control={<Radio />} label="Female" />
-      <FormControlLabel value="male" control={<Radio />} label="Male" />
-      <FormControlLabel value="other" control={<Radio />} label="Other" />
+      <FormControlLabel
+        value="female"
+        control={<Radio color="primary" />}
+        label="Female"
+      />
+      <FormControlLabel
+        value="male"
+        control={<Radio color="primary" />}
+        label="Male"
+      />
+      <FormControlLabel
+        value="other"
+        control={<Radio color="primary" />}
+        label="Other"
+      />
     </RadioGroup>
   </FormControl>
 );
@@ -67,10 +80,10 @@ export const renderSelectField = ({
   children,
   ...custom
 }) => (
-  <FormControl error={touched && error}>
+  <MyFormControl error={touched && error}>
     <InputLabel htmlFor="color-native-simple">{label}</InputLabel>
     <Select
-      native
+      label={label}
       {...input}
       {...custom}
       inputProps={{
@@ -81,96 +94,5 @@ export const renderSelectField = ({
       {children}
     </Select>
     {renderFromHelper({ touched, error })}
-  </FormControl>
+  </MyFormControl>
 );
-
-// const MaterialUiForm = props => {
-//   const { handleSubmit, pristine, reset, submitting, classes } = props
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <div>
-//         <Field
-//           name="firstName"
-//           component={renderMyTextField}
-//           label="First Name"
-//         />
-//       </div>
-//       <div>
-//         <Field name="lastName" component={renderMyTextField} label="Last Name" />
-//       </div>
-//       <div>
-//         <Field name="email" component={renderMyTextField} label="Email" />
-//       </div>
-//       <div>
-//         <Field name="sex" component={radioButton}>
-//           <Radio value="male" label="male" />
-//           <Radio value="female" label="female" />
-//         </Field>
-//       </div>
-//       <div>
-//         <Field
-//           classes={classes}
-//           name="favoriteColor"
-//           component={renderSelectField}
-//           label="Favorite Color"
-//         >
-//           <option value="" />
-//           <option value={'ff0000'}>Red</option>
-//           <option value={'00ff00'}>Green</option>
-//           <option value={'0000ff'}>Blue</option>
-//         </Field>
-//       </div>
-//       <div>
-//         <Field name="employed" component={renderCheckbox} label="Employed" />
-//       </div>
-//       <div />
-//       <div>
-//         <Field
-//           name="notes"
-//           component={renderMyTextField}
-//           label="Notes"
-//           multiline
-//           rowsMax="4"
-//           margin="normal"
-//         />
-//       </div>
-//       <div>
-//         <button type="submit" disabled={pristine || submitting}>
-//           Submit
-//         </button>
-//         <button type="button" disabled={pristine || submitting} onClick={reset}>
-//           Clear Values
-//         </button>
-//       </div>
-//     </form>
-//   )
-// }
-
-// const validate = values => {
-//   const errors = {}
-//   const requiredFields = [
-//     'firstName',
-//     'lastName',
-//     'email',
-//     'favoriteColor',
-//     'notes'
-//   ]
-//   requiredFields.forEach(field => {
-//     if (!values[field]) {
-//       errors[field] = 'Required'
-//     }
-//   })
-//   if (
-//     values.email &&
-//     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-//   ) {
-//     errors.email = 'Invalid email address'
-//   }
-//   return errors
-// }
-
-// export default reduxForm({
-//   form: 'MaterialUiForm', // a unique identifier for this form
-//   validate,
-//   asyncValidate
-// })(MaterialUiForm)
