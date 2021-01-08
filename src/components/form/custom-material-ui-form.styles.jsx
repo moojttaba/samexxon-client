@@ -47,7 +47,7 @@ export const MyTextField = withStyles({
 export const MyFormControl = withStyles((theme) => ({
   root: {
     margin: theme.spacing(0),
-    minWidth: 120,
+    width: '100%',
     "& input": {},
     "& p": {
       textAlign: "right !important",

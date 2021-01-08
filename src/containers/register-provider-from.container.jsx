@@ -41,19 +41,15 @@ const RegisterProviderForm = ({
     <Fragment>
       <Paper className={classes.paper}>
         <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-          <Box mb={2}>
+          <Box mb={2} width={200}>
             <Field
               component={renderSelectField}
-              label="Color"
+              label="نوع شخصیت"
               variant="outlined"
               name="moji"
             >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              <MenuItem value="حقوقی">حقوقی</MenuItem>
+              <MenuItem value="حقیقی">حقیقی</MenuItem>
             </Field>
           </Box>
           <Box mb={2}>
