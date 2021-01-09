@@ -5,9 +5,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
-import { renderTextField } from "../components/form/material-ui.form";
+import { renderTextField } from "../redux-form.component";
 import { createStructuredSelector } from "reselect";
-import { signUpStart } from "../redux/user/user.actions";
+import {
+  emailSignInStart,
+  switchSignUpSignIn,
+} from "../../redux/user/user.actions";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -23,11 +26,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignIN = ({ signUpStart, handleSubmit }) => {
+const SignIN = ({ emailSignInStart, switchSignUpSignIn, handleSubmit }) => {
   const classes = useStyles();
 
-  const onSubmit = ({ name, email, password, passwordConfirm }) => {
-    signUpStart(name, email, password, passwordConfirm);
+  const onSubmit = ({ email, password }) => {
+    emailSignInStart(email, password);
   };
 
   return (
@@ -44,22 +47,12 @@ const SignIN = ({ signUpStart, handleSubmit }) => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h6">
-            ثبت نام
+            ورود
           </Typography>
         </Box>
 
         <Box>
           <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-            <Box mb={2}>
-              <Field
-                type="text"
-                name="name"
-                label="نام کاربر"
-                component={renderTextField}
-                fullWidth={true}
-                variant="outlined"
-              />
-            </Box>
             <Box mb={2}>
               <Field
                 name="email"
@@ -70,22 +63,11 @@ const SignIN = ({ signUpStart, handleSubmit }) => {
                 variant="outlined"
               />
             </Box>
-
             <Box mb={2}>
               <Field
                 type="password"
                 name="password"
                 label="رمز عبور"
-                component={renderTextField}
-                fullWidth={true}
-                variant="outlined"
-              />
-            </Box>
-            <Box mb={2}>
-              <Field
-                type="password"
-                name="passwordConfirm"
-                label="تایید رمز عبور"
                 component={renderTextField}
                 fullWidth={true}
                 variant="outlined"
@@ -105,10 +87,10 @@ const SignIN = ({ signUpStart, handleSubmit }) => {
 
             <Box display="flex" style={{ justifyContent: "space-between" }}>
               <Box>
-                <Button color="primary">اکانت دارید؟</Button>
+                <Button color="primary">رمز را فراموش کردید؟</Button>
               </Box>
               <Box>
-                <Button color="primary">ورود</Button>
+                <Button color="primary">ثبت نام</Button>
               </Box>
             </Box>
           </Box>
@@ -135,12 +117,12 @@ const validate = (formValues) => {
 
 const mapStateToProps = createStructuredSelector({});
 const mapDispatchToProps = (dispatch) => ({
-
-  signUpStart: (name, email, password, passwordConfirm) =>
-    dispatch(signUpStart({ name, email, password, passwordConfirm })),
+  switchSignUpSignIn: () => dispatch(switchSignUpSignIn()),
+  emailSignInStart: (email, password) =>
+    dispatch(emailSignInStart({ email, password })),
 });
 
 export default reduxForm({
   validate,
-  form: "SignUpWithEmailAndPassword",
+  form: "SignInWithEmailAndPassword",
 })(connect(mapStateToProps, mapDispatchToProps)(SignIN));

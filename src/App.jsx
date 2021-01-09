@@ -23,6 +23,7 @@ import SignUpPage from "./pages/sign-up.page";
 import DashboardPage from "./pages/dashboard.page";
 import AdminDashboardPage from "./pages/admin-dashboard.page";
 import ProfilePage from "./pages/profile.page";
+import ProviderRegisterPage from "./pages/provider-register.page";
 
 const App = ({ isAuthenticated }) => {
   return (
@@ -72,7 +73,7 @@ const App = ({ isAuthenticated }) => {
 
         <PrivateRoute component={ProfilePage} path="/dashboard/profile" exact />
         <PrivateRoute
-          component={ProfilePage}
+          component={ProviderRegisterPage}
           path="/dashboard/provider-register"
           exact
         />

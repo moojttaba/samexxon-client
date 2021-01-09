@@ -14,7 +14,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Avatar from "@material-ui/core/Avatar";
 import Divider from "@material-ui/core/Divider";
 // import { updateSettings } from "./../api/axios.utils";
-import { renderTextField } from "./../components/form/material-ui.form";
+import { renderTextField } from "./../components/redux-form.component";
 import { selectCurrentUser } from "./../redux/user/user.selectors";
 import { updateMyProfileStart } from "./../redux/user/user.actions";
 

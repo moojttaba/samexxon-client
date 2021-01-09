@@ -3,7 +3,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 
-import SignUp from "./../containers/sign-up.container";
+import SignUp from "./../components/form/sign-up.form";
 
 export default function FixedContainer() {
   return (

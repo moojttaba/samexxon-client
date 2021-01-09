@@ -5,12 +5,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
-import { renderTextField } from "./../components/form/material-ui.form";
+import { renderTextField } from "../redux-form.component";
 import { createStructuredSelector } from "reselect";
 import {
   emailSignInStart,
   switchSignUpSignIn,
-} from "../redux/user/user.actions";
+} from "../../redux/user/user.actions";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
