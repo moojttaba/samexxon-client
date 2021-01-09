@@ -1,28 +1,23 @@
 import UserActionTypes from "./user.types";
 
 const INITIAL_STATE = {
-  currentUser: null,
+  currentUser: {
+    status: null,
+    token: null,
+    data: {
+      user: {
+        photo: null,
+        role: null,
+        _id: null,
+        name: null,
+        email: null,
+      },
+    },
+  },
   error: null,
   signUpSwitch: true,
 };
 
-// const INITIAL_STATE = {
-//   currentUser: {
-//     status: null,
-//     token: null,
-//     data: {
-//       user: {
-//         photo: null,
-//         role: null,
-//         _id: null,
-//         name: null,
-//         email: null,
-//       },
-//     },
-//   },
-//   error: null,
-//   signUpSwitch: true,
-// };
 
 const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -52,7 +47,19 @@ const userReducer = (state = INITIAL_STATE, action) => {
     case UserActionTypes.SIGN_OUT_SUCCESS:
       return {
         ...state,
-        currentUser: null,
+        currentUser: {
+          status: null,
+          token: null,
+          data: {
+            user: {
+              photo: null,
+              role: null,
+              _id: null,
+              name: null,
+              email: null,
+            },
+          },
+        },
         error: null,
       };
     case UserActionTypes.SIGN_IN_FAILURE:

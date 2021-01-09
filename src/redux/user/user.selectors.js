@@ -7,6 +7,11 @@ export const selectCurrentUser = createSelector(
   (user) => user.currentUser
 );
 
+export const selectUserRole = createSelector(
+  [selectUser],
+  (user) => user.currentUser.data.user.role
+);
+
 // export const selectSWitchSignUpSignIn = createSelector(
 //   [selectUser],
 //   (user) => user.signUpSwitch
