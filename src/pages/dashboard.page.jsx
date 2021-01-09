@@ -7,10 +7,12 @@ const useStyles = makeStyles((theme) => ({
   homePageStyles: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "flex-start",
+    height: "100vh",
     [theme.breakpoints.up("md")]: {
       paddingRight: 340,
+      
     },
   },
   Box: {

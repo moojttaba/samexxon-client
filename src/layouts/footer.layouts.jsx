@@ -9,6 +9,7 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import TwitterIcon from "@material-ui/icons/Twitter";
+import Hidden from "@material-ui/core/Hidden";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -17,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#120e1f",
     display: "flex",
     alignItems: "center",
+    paddingRight: 240,
+    [theme.breakpoints.down("md")]: {
+      paddingRight: 0,
+    },
   },
   container: {
     width: "100%",
@@ -24,12 +29,15 @@ const useStyles = makeStyles((theme) => ({
     padding: "0 16px",
     boxSizing: "border-box",
     margin: "0 auto",
+    
+
 
     display: "flex",
     alignItems: "center",
   },
   copyright: {
     color: "#afafaf",
+ 
   },
   socialIcon: {
     display: "flex",
@@ -59,20 +67,22 @@ const Footer = () => {
         <Container className={classes.container}>
           <Copyright />
           <Box flexGrow={1} />
-          <Box className={classes.socialIcon}>
-            <IconButton>
-              <InstagramIcon color="primary" />
-            </IconButton>
-            <IconButton>
-              <LinkedInIcon color="primary" />
-            </IconButton>
-            <IconButton>
-              <WhatsAppIcon color="primary" />
-            </IconButton>
-            <IconButton>
-              <TwitterIcon color="primary" />
-            </IconButton>
-          </Box>
+          <Hidden smDown implementation="css">
+            <Box className={classes.socialIcon}>
+              <IconButton>
+                <InstagramIcon color="primary" />
+              </IconButton>
+              <IconButton>
+                <LinkedInIcon color="primary" />
+              </IconButton>
+              <IconButton>
+                <WhatsAppIcon color="primary" />
+              </IconButton>
+              <IconButton>
+                <TwitterIcon color="primary" />
+              </IconButton>
+            </Box>
+          </Hidden>
         </Container>
       </Box>
     </Fragment>

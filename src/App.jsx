@@ -10,8 +10,9 @@ import PrivateRoute from "./routes/private.routes";
 import PublicRoute from "./routes/public.routes";
 
 import Header from "./layouts/header.layouts";
+import ProviderHeader from "./layouts/provider-header.layouts";
 import Footer from "./layouts/footer.layouts";
-import AdminHeader from "./layouts/admin-header.layouts";
+// import AdminHeader from "./layouts/admin-header.layouts";
 
 import HomePage from "./pages/home.page";
 import ContactPage from "./pages/contact.page";
@@ -24,7 +25,7 @@ import DashboardPage from "./pages/dashboard.page";
 const App = ({ isAuthenticated }) => {
   return (
     <ThemeProvider theme={theme}>
-      {isAuthenticated ? <AdminHeader /> : <Header />}
+      {isAuthenticated ? <ProviderHeader /> : <Header />}
 
       <Switch>
         <PublicRoute restricted={true} component={HomePage} path="/" exact />
