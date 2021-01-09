@@ -57,7 +57,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProviderRegisterPage = ({ currentUser, handleSubmit, updateMyProfileStart }) => {
+const ProviderRegisterPage = ({
+  currentUser,
+  handleSubmit,
+  updateMyProfileStart,
+}) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("lg"));
 
