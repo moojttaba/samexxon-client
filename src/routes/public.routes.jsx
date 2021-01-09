@@ -3,7 +3,12 @@ import { selectUserRole } from "./../redux/user/user.selectors";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-const PublicRoute = ({ isAuthenticated, component: Component, restricted, ...rest }) => {
+const PublicRoute = ({
+  isAuthenticated,
+  component: Component,
+  restricted,
+  ...rest
+}) => {
   console.log(`PublicRoute: ${isAuthenticated}`);
 
   return (
@@ -12,12 +17,16 @@ const PublicRoute = ({ isAuthenticated, component: Component, restricted, ...res
     <Route
       {...rest}
       render={(props) =>
-        isAuthenticated === 'user' && restricted ? (
+        isAuthenticated === "user" && restricted ? (
           <Redirect to="/dashboard" />
+        ) : isAuthenticated === "admin" && restricted ? (
+          <Redirect to="/admin-dashboard" />
         ) : (
           <Component {...props} />
         )
       }
+
+     
     />
   );
 };

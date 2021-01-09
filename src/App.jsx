@@ -12,7 +12,7 @@ import PublicRoute from "./routes/public.routes";
 import Header from "./layouts/header.layouts";
 import ProviderHeader from "./layouts/provider-header.layouts";
 import Footer from "./layouts/footer.layouts";
-// import AdminHeader from "./layouts/admin-header.layouts";
+import AdminHeader from "./layouts/admin-header.layouts";
 
 import HomePage from "./pages/home.page";
 import ContactPage from "./pages/contact.page";
@@ -21,13 +21,21 @@ import SignInPage from "./pages/sign-in.page";
 import SignUpPage from "./pages/sign-up.page";
 
 import DashboardPage from "./pages/dashboard.page";
+import AdminDashboardPage from "./pages/admin-dashboard.page";
 import ProfilePage from "./pages/profile.page";
 
 const App = ({ isAuthenticated }) => {
   return (
     <ThemeProvider theme={theme}>
-      {isAuthenticated === 'user' ? <ProviderHeader /> : <Header />}
-
+      {isAuthenticated === "user" ? (
+        <ProviderHeader />
+      ) : isAuthenticated === "admin" ? (
+        <AdminHeader />
+      ) : (
+        <Header />
+      )}
+      {/* // return condition1 ? value1 // : condition2 ? value2 // : condition3 ?
+      value3 // : value4; */}
       <Switch>
         <PublicRoute restricted={true} component={HomePage} path="/" exact />
         <PublicRoute
@@ -56,6 +64,12 @@ const App = ({ isAuthenticated }) => {
         />
 
         <PrivateRoute component={DashboardPage} path="/dashboard" exact />
+        <PrivateRoute
+          component={AdminDashboardPage}
+          path="/admin-dashboard"
+          exact
+        />
+
         <PrivateRoute component={ProfilePage} path="/dashboard/profile" exact />
         <PrivateRoute
           component={ProfilePage}
@@ -63,7 +77,7 @@ const App = ({ isAuthenticated }) => {
           exact
         />
       </Switch>
-      {isAuthenticated === 'user' ? null : <Footer />}
+      {isAuthenticated === "user" ? null : <Footer />}
     </ThemeProvider>
   );
 };

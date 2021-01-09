@@ -15,6 +15,8 @@ const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => {
       render={(props) =>
         isAuthenticated === "user" ? (
           <Component {...props} />
+        ) : isAuthenticated === "admin" ? (
+          <Component {...props} />
         ) : (
           <Redirect to="/" />
         )
@@ -22,6 +24,8 @@ const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => {
     />
   );
 };
+
+
 
 const mapStateToProps = createStructuredSelector({
   isAuthenticated: selectUserRole,
