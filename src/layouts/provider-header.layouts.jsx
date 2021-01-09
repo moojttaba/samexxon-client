@@ -27,6 +27,7 @@ import Box from "@material-ui/core/Box";
 import Avatar from "@material-ui/core/Avatar";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Drawer from "../containers/drawer-provider.container";
+import { selectCurrentUser } from "./../redux/user/user.selectors";
 
 //////////////////////////////////////////// ICON - IMAGE
 import logo from "./../assets/samexxon.logo.jpg";
@@ -161,7 +162,7 @@ ElevationScroll.propTypes = {
   window: PropTypes.func,
 };
 
-const Header = ({ toggleDrawerAdminHidden, signOutStart }) => {
+const Header = ({ toggleDrawerAdminHidden, signOutStart, currentUser}) => {
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
@@ -194,7 +195,11 @@ const Header = ({ toggleDrawerAdminHidden, signOutStart }) => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose} component={Link} to="/dashboard/profile">
+      <MenuItem
+        onClick={handleMenuClose}
+        component={Link}
+        to="/dashboard/profile"
+      >
         پروفایل
       </MenuItem>
       <MenuItem onClick={handleMenuCloseLogout} component={Link} to="/">
@@ -257,7 +262,7 @@ const Header = ({ toggleDrawerAdminHidden, signOutStart }) => {
                   <Avatar className={classes.AvatarDesktop} />
                   <Box mr={2}>
                     <Typography align="right" variant="body1">
-                      مجتبی
+                      {currentUser.data.user.name}
                     </Typography>
                   </Box>
                 </IconButton>
@@ -289,6 +294,8 @@ const mapDispatchToProps = (dispatch) => ({
   toggleDrawerAdminHidden: () => dispatch(toggleDrawerAdminHidden()),
   signOutStart: () => dispatch(signOutStart()),
 });
-const mapStateToProps = createStructuredSelector({});
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
