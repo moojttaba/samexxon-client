@@ -3,6 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
@@ -14,10 +15,9 @@ import Avatar from "@material-ui/core/Avatar";
 import Divider from "@material-ui/core/Divider";
 // import { updateSettings } from "./../api/axios.utils";
 import { renderTextField } from "./../components/form/material-ui.form";
-import {
-  selectUserProfile,
-  selectUserProfileToken,
-} from "./../redux/user/user.selectors";
+import // selectUserProfile,
+// selectUserProfileToken,
+"./../redux/user/user.selectors";
 import { updateMyProfileStart } from "./../redux/user/user.actions";
 
 const useStyles = makeStyles((theme) => ({
@@ -71,6 +71,7 @@ const ProfilePage = ({ user, token, handleSubmit, updateMyProfileStart }) => {
 
   return (
     <Fragment>
+       <CssBaseline />
       <Box
         className={classes.root}
         component="form"
@@ -125,7 +126,7 @@ const ProfilePage = ({ user, token, handleSubmit, updateMyProfileStart }) => {
                       type="text"
                       name="name"
                       label="نام"
-                      placeholder={user.name}
+                      //placeholder={user.name}
                       InputLabelProps={{
                         shrink: true,
                       }}
@@ -139,7 +140,7 @@ const ProfilePage = ({ user, token, handleSubmit, updateMyProfileStart }) => {
                       type="text"
                       name="lastName"
                       label="نام خانوادگی"
-                      placeholder={user.lastName}
+                      //placeholder={user.lastName}
                       InputLabelProps={{
                         shrink: true,
                       }}
@@ -161,7 +162,7 @@ const ProfilePage = ({ user, token, handleSubmit, updateMyProfileStart }) => {
                       type="email"
                       name="email"
                       label="ایمیل"
-                      placeholder={user.email}
+                      //placeholder={user.email}
                       InputLabelProps={{
                         shrink: true,
                       }}
@@ -204,8 +205,8 @@ const validate = (formValues) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  user: selectUserProfile,
-  token: selectUserProfileToken,
+  // user: selectUserProfile,
+  // token: selectUserProfileToken,
 });
 const mapDispatchToProps = (dispatch) => ({
   updateMyProfileStart: (values, token) =>

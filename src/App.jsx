@@ -21,6 +21,7 @@ import SignInPage from "./pages/sign-in.page";
 import SignUpPage from "./pages/sign-up.page";
 
 import DashboardPage from "./pages/dashboard.page";
+import ProfilePage from "./pages/profile.page";
 
 const App = ({ isAuthenticated }) => {
   return (
@@ -55,8 +56,10 @@ const App = ({ isAuthenticated }) => {
         />
 
         <PrivateRoute component={DashboardPage} path="/dashboard" exact />
+        <PrivateRoute component={ProfilePage} path="/dashboard/profile" exact />
       </Switch>
-      <Footer />
+      {isAuthenticated ? null : <Footer />}
+      
     </ThemeProvider>
   );
 };

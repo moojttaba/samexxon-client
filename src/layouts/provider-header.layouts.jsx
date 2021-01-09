@@ -194,7 +194,7 @@ const Header = ({ toggleDrawerAdminHidden, signOutStart }) => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose} component={Link} to="/admin/Profile">
+      <MenuItem onClick={handleMenuClose} component={Link} to="/dashboard/profile">
         پروفایل
       </MenuItem>
       <MenuItem onClick={handleMenuCloseLogout} component={Link} to="/">
