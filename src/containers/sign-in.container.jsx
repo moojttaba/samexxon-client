@@ -2,7 +2,6 @@ import { Fragment } from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
@@ -12,13 +11,18 @@ import {
   emailSignInStart,
   switchSignUpSignIn,
 } from "../redux/user/user.actions";
+import Avatar from "@material-ui/core/Avatar";
+import Typography from "@material-ui/core/Typography";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(6),
     margin: "auto",
     minWidth: 400,
-    
+  },
+  avatar: {
+    backgroundColor: theme.palette.primary.main,
   },
 }));
 
@@ -32,16 +36,24 @@ const SignIN = ({ emailSignInStart, switchSignUpSignIn, handleSubmit }) => {
   return (
     <Fragment>
       <Paper className={classes.paper}>
-        <Grid container spacing={2} direction="column">
-          <Grid
-            component="form"
-            onSubmit={handleSubmit(onSubmit)}
-            item
-            container
-            spacing={4}
-            direction="column"
-          >
-            <Grid item>
+        <Box
+          mb={2}
+          flexDirection="column"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h6">
+            ورود
+          </Typography>
+        </Box>
+
+        <Box>
+          <Box component="form" onSubmit={handleSubmit(onSubmit)}>
+            <Box mb={2}>
               <Field
                 name="email"
                 type="email"
@@ -50,8 +62,8 @@ const SignIN = ({ emailSignInStart, switchSignUpSignIn, handleSubmit }) => {
                 fullWidth={true}
                 variant="outlined"
               />
-            </Grid>
-            <Grid item>
+            </Box>
+            <Box mb={2}>
               <Field
                 type="password"
                 name="password"
@@ -60,8 +72,8 @@ const SignIN = ({ emailSignInStart, switchSignUpSignIn, handleSubmit }) => {
                 fullWidth={true}
                 variant="outlined"
               />
-            </Grid>
-            <Grid item>
+            </Box>
+            <Box mb={2}>
               <Button
                 type="submit"
                 variant="contained"
@@ -71,20 +83,18 @@ const SignIN = ({ emailSignInStart, switchSignUpSignIn, handleSubmit }) => {
               >
                 ورود
               </Button>
-            </Grid>
+            </Box>
 
-            <Box
-              display="flex"
-              style={{ padding: 20, justifyContent: "center" }}
-            >
+            <Box display="flex" style={{ justifyContent: "space-between" }}>
               <Box>
-                <Button color="primary" >
-                  رمز را فراموش کردید؟
-                </Button>
+                <Button color="primary">رمز را فراموش کردید؟</Button>
+              </Box>
+              <Box>
+                <Button color="primary">ثبت نام</Button>
               </Box>
             </Box>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       </Paper>
     </Fragment>
   );

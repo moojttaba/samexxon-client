@@ -187,13 +187,17 @@ const Header = ({ toggleDrawerHidden, routes }) => {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose} component={Link} to="/signin">
-        ورود اعضا
+        ورود
       </MenuItem>
-      <MenuItem onClick={handleMenuClose}>ارسال رزومه شغلی</MenuItem>
-      <MenuItem onClick={handleMenuClose} component={Link} to="/register-provider">
+
+      <MenuItem
+        onClick={handleMenuClose}
+        component={Link}
+        to="/register-provider"
+      >
         ثبت نام تامین کنندگان
       </MenuItem>
-      <MenuItem onClick={handleMenuClose}>ثبت نام مشاوره های املاک</MenuItem>
+  
     </Menu>
   );
 
