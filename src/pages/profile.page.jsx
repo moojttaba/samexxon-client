@@ -15,9 +15,7 @@ import Avatar from "@material-ui/core/Avatar";
 import Divider from "@material-ui/core/Divider";
 // import { updateSettings } from "./../api/axios.utils";
 import { renderTextField } from "./../components/form/material-ui.form";
-import // selectUserProfile,
-// selectUserProfileToken,
-"./../redux/user/user.selectors";
+import { selectCurrentUser } from "./../redux/user/user.selectors";
 import { updateMyProfileStart } from "./../redux/user/user.actions";
 
 const useStyles = makeStyles((theme) => ({
@@ -59,19 +57,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProfilePage = ({ user, token, handleSubmit, updateMyProfileStart }) => {
+const ProfilePage = ({ currentUser, handleSubmit, updateMyProfileStart }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("lg"));
 
   const classes = useStyles();
 
   const onSubmit = (values) => {
-    updateMyProfileStart(values, token);
+    updateMyProfileStart(values, currentUser.token);
   };
 
   return (
     <Fragment>
-       <CssBaseline />
+      <CssBaseline />
       <Box
         className={classes.root}
         component="form"
@@ -126,7 +124,7 @@ const ProfilePage = ({ user, token, handleSubmit, updateMyProfileStart }) => {
                       type="text"
                       name="name"
                       label="نام"
-                      //placeholder={user.name}
+                      placeholder={currentUser.data.user.name}
                       InputLabelProps={{
                         shrink: true,
                       }}
@@ -140,7 +138,7 @@ const ProfilePage = ({ user, token, handleSubmit, updateMyProfileStart }) => {
                       type="text"
                       name="lastName"
                       label="نام خانوادگی"
-                      //placeholder={user.lastName}
+                      placeholder={currentUser.data.user.lastName}
                       InputLabelProps={{
                         shrink: true,
                       }}
@@ -162,7 +160,7 @@ const ProfilePage = ({ user, token, handleSubmit, updateMyProfileStart }) => {
                       type="email"
                       name="email"
                       label="ایمیل"
-                      //placeholder={user.email}
+                      placeholder={currentUser.data.user.email}
                       InputLabelProps={{
                         shrink: true,
                       }}
@@ -177,7 +175,7 @@ const ProfilePage = ({ user, token, handleSubmit, updateMyProfileStart }) => {
         <Box className={classes.footer} mt={3}>
           <Box mr={2}>
             <Typography variant="subtitle2" color="primary" align="center">
-              کالا ذخیره نشده است
+              تغییرات ذخیره نشده است
             </Typography>
           </Box>
           <Box flexDirection="row" display="flex">
@@ -205,8 +203,7 @@ const validate = (formValues) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  // user: selectUserProfile,
-  // token: selectUserProfileToken,
+  currentUser: selectCurrentUser,
 });
 const mapDispatchToProps = (dispatch) => ({
   updateMyProfileStart: (values, token) =>
