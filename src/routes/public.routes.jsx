@@ -1,5 +1,5 @@
 import { Route, Redirect } from "react-router-dom";
-import { selectCurrentUser } from "./../redux/user/user.selectors";
+import { selectUserRole } from "./../redux/user/user.selectors";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -12,7 +12,7 @@ const PublicRoute = ({ isAuthenticated, component: Component, restricted, ...res
     <Route
       {...rest}
       render={(props) =>
-        isAuthenticated && restricted ? (
+        isAuthenticated === 'user' && restricted ? (
           <Redirect to="/dashboard" />
         ) : (
           <Component {...props} />
@@ -23,7 +23,7 @@ const PublicRoute = ({ isAuthenticated, component: Component, restricted, ...res
 };
 
 const mapStateToProps = createStructuredSelector({
-  isAuthenticated: selectCurrentUser,
+  isAuthenticated: selectUserRole,
 });
 
 const mapDispatchToProps = (dispatch) => ({});

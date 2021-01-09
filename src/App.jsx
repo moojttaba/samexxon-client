@@ -1,7 +1,7 @@
 import { Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { selectCurrentUser } from "./redux/user/user.selectors";
+import { selectUserRole } from "./redux/user/user.selectors";
 
 import theme from "./styles/theme.jsx";
 import { ThemeProvider } from "@material-ui/core/styles";
@@ -26,7 +26,7 @@ import ProfilePage from "./pages/profile.page";
 const App = ({ isAuthenticated }) => {
   return (
     <ThemeProvider theme={theme}>
-      {isAuthenticated ? <ProviderHeader /> : <Header />}
+      {isAuthenticated === 'user' ? <ProviderHeader /> : <Header />}
 
       <Switch>
         <PublicRoute restricted={true} component={HomePage} path="/" exact />
@@ -63,13 +63,13 @@ const App = ({ isAuthenticated }) => {
           exact
         />
       </Switch>
-      {isAuthenticated ? null : <Footer />}
+      {isAuthenticated === 'user' ? null : <Footer />}
     </ThemeProvider>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
-  isAuthenticated: selectCurrentUser,
+  isAuthenticated: selectUserRole,
 });
 
 const mapDispatchToProps = (dispatch) => ({});
