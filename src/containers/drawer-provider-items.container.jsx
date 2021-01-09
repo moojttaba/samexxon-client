@@ -11,6 +11,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import SettingsIcon from "@material-ui/icons/Settings";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,16 +54,31 @@ const DrawerItems = () => {
           }}
           selected={value === 1}
           component={Link}
-          to="/"
+          to="/dashboard"
         >
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
           <ListItemText primary="خانه" align="right" />
         </ListItem>
+        <ListItem
+          button
+          onClick={() => {
+            setValue(2);
+          }}
+          selected={value === 2}
+          component={Link}
+          to="/dashboard/provider-register"
+        >
+          <ListItemIcon>
+            <AssignmentTurnedInIcon />
+          </ListItemIcon>
+          <ListItemText primary="ثبت نام تامین کننده" align="right" />
+        </ListItem>
       </Box>
       <Box>
         <ListItem
+          disabled
           button
           onClick={() => {
             setValue(100);

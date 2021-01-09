@@ -57,9 +57,13 @@ const App = ({ isAuthenticated }) => {
 
         <PrivateRoute component={DashboardPage} path="/dashboard" exact />
         <PrivateRoute component={ProfilePage} path="/dashboard/profile" exact />
+        <PrivateRoute
+          component={ProfilePage}
+          path="/dashboard/provider-register"
+          exact
+        />
       </Switch>
       {isAuthenticated ? null : <Footer />}
-      
     </ThemeProvider>
   );
 };
