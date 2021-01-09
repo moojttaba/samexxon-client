@@ -28,11 +28,11 @@ export function* updateProfile({ payload: { data, token } }) {
     // if (res.data.status === "success") {
     //   showAlert("success", `updated successfully!`);
     // }
-    if (user.status === "success") {
-      return window.setTimeout(() => {
-        location.assign("/");
-      }, 1500);
-    }
+    // if (user.status === "success") {
+    //   return window.setTimeout(() => {
+    //     location.assign("/");
+    //   }, 1500);
+    // }
 
     yield put(updateMyProfileSuccess(user));
   } catch (error) {

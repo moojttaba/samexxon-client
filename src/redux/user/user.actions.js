@@ -4,9 +4,9 @@ export const switchSignUpSignIn = () => ({
   type: UserActionTypes.TOGGLE_SIGN_SWITCH,
 });
 
-export const updateMyProfileStart = (profileDataUpdate) => ({
+export const updateMyProfileStart = ( data, token ) => ({
   type: UserActionTypes.UPDATE_MY_PROFILE_START,
-  payload: profileDataUpdate,
+  
 });
 
 export const updateMyProfileSuccess = (user) => ({
