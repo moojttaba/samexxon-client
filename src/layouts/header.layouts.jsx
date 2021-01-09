@@ -193,7 +193,7 @@ const Header = ({ toggleDrawerHidden, routes }) => {
       <MenuItem
         onClick={handleMenuClose}
         component={Link}
-        to="/register-provider"
+        to="/signup"
       >
         ثبت نام تامین کنندگان
       </MenuItem>
