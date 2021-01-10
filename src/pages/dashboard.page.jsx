@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import CardHeader from "@material-ui/core/CardHeader";
+import ProviderRegisterForm from "./../components/form/provider-register.form";
 
 const useStyles = makeStyles((theme) => ({
   homePageStyles: {
@@ -12,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     [theme.breakpoints.up("md")]: {
       paddingRight: 340,
-      
     },
   },
   Box: {
@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontSize: 20,
-    
   },
 }));
 
@@ -37,6 +36,7 @@ const DashboardPage = () => {
             title: classes.headerTitle,
           }}
         />
+        <ProviderRegisterForm />
       </Box>
     </Fragment>
   );

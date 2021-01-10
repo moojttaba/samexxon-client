@@ -31,22 +31,25 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
       alignItems: "center",
       display: "flex",
+
       //flexDirection: "row",
     },
   },
 
   footer: {
-    [theme.breakpoints.up("md")]: {
-      //minWidth: `calc(100% - 240px)`,
-      width: "100%",
-    },
+    bottom: 0,
+    right: 0,
     width: "100%",
-    flexDirection: "row",
-    display: "flex",
     backgroundColor: "#120e1f",
-    padding: 16,
+    display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    padding: 16,
+    position: "fixed",
+    zIndex: 1000,
+    [theme.breakpoints.up("md")]: {
+      paddingRight: 240,
+    },
   },
 
   CardHeaderTitle: {

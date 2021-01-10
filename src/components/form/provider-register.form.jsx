@@ -1,128 +1,86 @@
-import { Fragment } from "react";
-import { connect } from "react-redux";
+import React from "react";
 import { Field, reduxForm } from "redux-form";
-import { makeStyles } from "@material-ui/core/styles";
-import Box from "@material-ui/core/Box";
-import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
-import { renderTextField } from "../redux-form.component";
-import { createStructuredSelector } from "reselect";
-import {
-  emailSignInStart,
-  switchSignUpSignIn,
-} from "../../redux/user/user.actions";
-import Avatar from "@material-ui/core/Avatar";
-import Typography from "@material-ui/core/Typography";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    padding: theme.spacing(6),
-    margin: "auto",
-    minWidth: 400,
-  },
-  avatar: {
-    backgroundColor: theme.palette.primary.main,
-  },
-}));
 
-const SignIN = ({ emailSignInStart, switchSignUpSignIn, handleSubmit }) => {
-  const classes = useStyles();
+import { renderTextField,renderSelectField,renderCheckbox} from "./../redux-form.component";
+import MenuItem from "@material-ui/core/MenuItem";
+import asyncValidate from "./asyncValidate";
 
-  const onSubmit = ({ email, password }) => {
-    emailSignInStart(email, password);
-  };
+const validate = values => {
+  const errors = {}
+  const requiredFields = [ 'firstName', 'lastName', 'email', 'favoriteColor', 'notes' ]
+  requiredFields.forEach(field => {
+    if (!values[ field ]) {
+      errors[ field ] = 'Required'
+    }
+  })
+  if (values.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address'
+  }
+  return errors
+}
 
+
+const MaterialUiForm = (props) => {
+  const { handleSubmit, pristine, reset, submitting } = props;
   return (
-    <Fragment>
-      <Paper className={classes.paper}>
-        <Box
-          mb={2}
-          flexDirection="column"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
+    <form onSubmit={handleSubmit}>
+      <div>
+        <Field
+          name="firstName"
+          component={renderTextField}
+          label="First Name"
+        />
+      </div>
+      <div>
+        <Field name="lastName" component={renderTextField} label="Last Name" />
+      </div>
+      <div>
+        <Field name="email" component={renderTextField} label="Email" />
+      </div>
+      {/* <div>
+        <Field name="sex" component={renderRadioGroup}>
+          <RadioButton value="male" label="male" />
+          <RadioButton value="female" label="female" />
+        </Field>
+      </div> */}
+      <div>
+        <Field
+          name="favoriteColor"
+          component={renderSelectField}
+          label="Favorite Color"
         >
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h6">
-            ورود
-          </Typography>
-        </Box>
-
-        <Box>
-          <Box component="form" onSubmit={handleSubmit(onSubmit)}>
-            <Box mb={2}>
-              <Field
-                name="email"
-                type="email"
-                label="ایمیل"
-                component={renderTextField}
-                fullWidth={true}
-                variant="outlined"
-              />
-            </Box>
-            <Box mb={2}>
-              <Field
-                type="password"
-                name="password"
-                label="رمز عبور"
-                component={renderTextField}
-                fullWidth={true}
-                variant="outlined"
-              />
-            </Box>
-            <Box mb={2}>
-              <Button
-                type="submit"
-                variant="contained"
-                fullWidth={true}
-                size="large"
-                color="primary"
-              >
-                ورود
-              </Button>
-            </Box>
-
-            <Box display="flex" style={{ justifyContent: "space-between" }}>
-              <Box>
-                <Button color="primary">رمز را فراموش کردید؟</Button>
-              </Box>
-              <Box>
-                <Button color="primary">ثبت نام</Button>
-              </Box>
-            </Box>
-          </Box>
-        </Box>
-      </Paper>
-    </Fragment>
+          <MenuItem value="ff0000" primaryText="Red" />
+          <MenuItem value="00ff00" primaryText="Green" />
+          <MenuItem value="0000ff" primaryText="Blue" />
+        </Field>
+      </div>
+      <div>
+        <Field name="employed" component={renderCheckbox} label="Employed" />
+      </div>
+      <div>
+        <Field
+          name="notes"
+          component={renderTextField}
+          label="Notes"
+          multiLine={true}
+          rows={2}
+        />
+      </div>
+      <div>
+        <button type="submit" disabled={pristine || submitting}>
+          Submit
+        </button>
+        <button type="button" disabled={pristine || submitting} onClick={reset}>
+          Clear Values
+        </button>
+      </div>
+    </form>
   );
 };
 
-const validate = (formValues) => {
-  const errors = {};
-  if (!formValues.email) {
-    errors.email = "you must begozii";
-  }
-
-  if (!formValues.password) {
-    errors.password = "you must berini";
-  }
-
-  return errors;
-};
-
-//////////////// REDUX MANAGER
-
-const mapStateToProps = createStructuredSelector({});
-const mapDispatchToProps = (dispatch) => ({
-  switchSignUpSignIn: () => dispatch(switchSignUpSignIn()),
-  emailSignInStart: (email, password) =>
-    dispatch(emailSignInStart({ email, password })),
-});
-
 export default reduxForm({
+  form: "MaterialUiForm", // a unique identifier for this form
   validate,
-  form: "SignInWithEmailAndPassword",
-})(connect(mapStateToProps, mapDispatchToProps)(SignIN));
+  asyncValidate,
+})(MaterialUiForm);
